@@ -36,7 +36,11 @@ function Content() {
     let [getFeaturedJobData, setGetFeaturedJobData] = useState([])
     let [getTotalJob, setGetTotalJob] = useState([])
 
-
+    let [getFeatureJobId, setGetFeatureJobId] = useState('')
+    function getFeatureJobIdFunction(id) {
+        setGetFeatureJobId(id)
+    }
+    console.log(getFeatureJobId)
     async function getFeaturedJob() {
         const getFeaturedJob = await fetch('http://localhost:4500/getData', {
 
@@ -65,34 +69,31 @@ function Content() {
 
     console.log(getFeaturedJobData)
     console.log(getTotalJob)
-    for (const keys of Object.keys(getTotalJob)) {
-        console.log(keys)
-    }
+    // for (const keys of Object.keys(getTotalJob)) {
+    //     console.log(keys)
+    // }
 
-    for (const value of Object.values(getTotalJob)) {
-        console.log(value)
-    }
+    // for (const value of Object.values(getTotalJob)) {
+    //     console.log(value)
+    // }
     return (
         <div className='flex flex-col bg-white gap-8'>
 
             <div>
                 <div className='flex flex-col bg-[#F4EFE7]
-            md:flex-row  '>
-
+                    md:flex-row  '>
 
                     <div className=' flex w-full flex-col gap-10 px-5 py-8
-                    md:w-[100%] md:px-4 md:py-20
-                    lg:w-[100%] lg:px-14 lg:py-20'>
-
-
+                            md:w-[100%] md:px-4 md:py-20
+                            lg:w-[100%] lg:px-14 lg:py-20'>
 
                         <div data-wow-duration="1s" data-wow-delay="1s" className='wow fadeInUp'>
                             <div className=' flex flex-col gap-6 '>
 
                                 <div className=' gap-6 flex-col text-4xl mt-2'>
                                     <p className=' text-[#123841] font-sans font-plus-jakarta font-semibold
-                                    md:leading-tight md:text-5xl 
-                                    lg:text-6xl'
+                                        md:leading-tight md:text-5xl 
+                                        lg:text-6xl'
                                     >Find The Job That </p>
 
 
@@ -158,9 +159,7 @@ function Content() {
                     </div>
 
                     <img src={PersonImage} data-wow-duration="1s" data-wow-delay="1s" className=' wow zoomIn hidden h-full 
-                                lg:w-[30%] lg:h-[70vh] lg:flex lg:mt-20'></img>
-
-
+                    lg:w-[30%] lg:h-[70vh] lg:flex lg:mt-20'></img>
 
                 </div>
 
@@ -192,9 +191,10 @@ function Content() {
             </div>
 
 
-            <div data-wow-duration="1s" data-wow-delay="1s" className='wow fadeInUp  flex flex-col gap-2 bg-white px-5'>
+            <div data-wow-duration="1s" data-wow-delay="1s" className='wow fadeInUp  flex flex-col gap-2 bg-white
+            lg:px-14'>
                 <div className='flex flex-col gap-2
-                md:flex-row md:items-center md:justify-between'>
+                    md:flex-row md:items-center md:justify-between'>
                     <div className='flex flex-col gap-2'>
                         <p className='text-black dark:text-white font-plus-jakarta-sans text-3xl font-bold'>Browse by category</p>
                         <p className='text-gray-600 font-plus-jakarta-sans text-base font-normal'>Recruitment Made Easy in 100 seconds</p>
@@ -279,14 +279,15 @@ function Content() {
                 </div>
             </div>
 
-            <div data-wow-duration="1s" data-wow-delay="1s" className='wow fadeInUp flex flex-col gap-6 bg-white'>
+            <div data-wow-duration="1s" data-wow-delay="1s" className='wow fadeInUp flex flex-col gap-6 bg-white
+             lg:px-14'>
 
                 <div className='flex flex-col items-center justify-center bg-white gap-3'>
                     <p className='text-gray-700 text-center font-bold text-3xl'>Featured Job</p>
                     <p className='text-[#404145] text-center font-normal text-xl'>Find the job that’s perfect for you. about 800+ new jobs everyday</p>
                 </div>
 
-                <div className='flex flex-col gap-4 px-5 bg-white'>
+                <div className='flex flex-col gap-4 bg-white'>
 
                     <div className='flex flex-row gap-4 overflow-x-scroll
                     md:items-center md:justify-center'>
@@ -313,7 +314,7 @@ function Content() {
 
                     </div>
 
-                    <div data-wow-duration="1s" data-wow-delay="1s" className='wow fadeInRight flex flex-col gap-5 mt-3
+                    <div data-wow-duration="1s" data-wow-delay="1s" className='wow fadeInRight flex flex-col gap-5 mt-3 
                     md:grid md:grid-cols-2 md:gap-8'>
 
 
@@ -321,7 +322,9 @@ function Content() {
                         {
                             getFeaturedJobData.map((data) => {
                                 return (
-                                    <div className='w-full border border-solid hover:shadow-xl hover:border-[#61CE70] border-gray-300 p-4  flex flex-col gap-4'>
+                                    <div className='w-full border border-solid hover:shadow-xl hover:border-[#61CE70] border-gray-300 p-4  flex flex-col gap-4'
+                                        onClick={() => { getFeatureJobIdFunction(data._id) }}
+                                    >
 
                                         <div className='flex gap-4
                                             md:justify-between'>
@@ -341,7 +344,7 @@ function Content() {
                                                     <div className='w-full flex items-center gap-2 flex-wrap -300 '>
                                                         <div className='flex items-center'>
                                                             {/* <img src={locationIcon} className='w-7 h-7'></img> */}
-                                                            <LocationOnOutlinedIcon  className='text-gray-500 transform scale-90' />
+                                                            <LocationOnOutlinedIcon className='text-gray-500 transform scale-90' />
                                                             <p className='text-gray-600 font-plus-jakarta-sans text-sm font-normal'>{data.location}</p>
                                                         </div>
 
@@ -676,7 +679,7 @@ md:justify-between'>
                 <div className='flex flex-col 
                 md:flex-row '>
                     <div className='w-full '>
-                        <div className='w-full overflow-x-auto flex gap-4'>
+                        <div className='w-full overflow-x-auto overflow-hidden flex gap-4'>
 
                             <img src={GermanyPicture} className='w-44 h-[40vh] md:w-72 md:h-[60vh] '></img>
                             <img src={GermanyPicture} className='w-44 h-[40vh] md:w-72 md:h-[60vh] '></img>
@@ -689,8 +692,9 @@ md:justify-between'>
                 </div>
 
             </div>
+
             <div className='flex flex-col
-            md:flex-row'>
+                md:flex-row'>
                 <div className='w-full flex items-center justify-center'>
                     <div data-wow-duration="1s" data-wow-delay="1s" className='wow zoomIn w-[80%] h-[65vh] mt-6'>
                         <img src={WorldPicture} className='w-full h-full object-fit'></img>
@@ -764,9 +768,11 @@ md:justify-between'>
                 </div>
             </div> */}
 
-            <div data-wow-duration="1s" data-wow-delay="1s" className='wow fadeInUp flex flex-col gap-2 bg-white px-5'>
+            <div data-wow-duration="1s" data-wow-delay="1s" className='wow fadeInUp flex flex-col gap-2 bg-white px-5
+            lg:px-14'>
                 <div className='flex gap-2 flex-col
-                md:justify-between md:items-center md:flex-row'>
+                md:justify-between md:items-center md:flex-row
+                '>
 
                     <div className=' flex flex-col gap-2 bg-white '>
                         <p className='text-black dark:text-white font-plus-jakarta-sans text-3xl font-semibold'>Top Employers</p>
@@ -1224,6 +1230,7 @@ md:justify-between'>
                 </div>
 
             </div>
+
         </div>
 
     )

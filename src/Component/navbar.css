@@ -12,6 +12,10 @@
     display: flex;
 }
 
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar width */
+  }
+
 
 @media screen and (min-width:576px) and (max-width:1199px) {
 
@@ -44,6 +48,13 @@
 
     .navbar {
         height: 150px;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
+    .content{
+        padding-left: 60px;
+        padding-right: 60px;
     }
 
 }

@@ -9,89 +9,93 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import PermIdentitySharpIcon from '@mui/icons-material/PermIdentitySharp';
+import GridViewIcon from '@mui/icons-material/GridView';
 import './navbar.css'
 function Navbar() {
     const [menuButton, setMenuButton] = useState(false)
     const style = {
-        fontFamily: '"Plus Jakarta Sans", sans-serif', 
-      };
+        fontFamily: '"Plus Jakarta Sans", sans-serif',
+    };
     return (
         <div className=' flex flex-wrap overflow-hidden bg-white ' >
             <div className="navbar w-full flex flex-row px-5 items-center  justify-between flex-wrap">
-                <div className='logo flex gap-12'>
-                    <img src={logo} className='w-full h-full object-contain'></img>
 
-                    <div className='showCategory hidden flex-row items-center gap-1 justify-center
-                        '>
-                        <img src={CategoryLogo} className='w-5 h-5'></img>
-                        <p  className='text-gray-700 font-helvetica text-base font-normal leading-6'>Categories</p>
+                {/* <div className='flex gap-20 flex-wrap bg-red-300'> */}
+                    <div className='logo flex gap-12 '>
+                        <img src={logo} className='w-full h-full object-contain'></img>
+
+                        <div className=' showCategory hidden flex-row items-center gap-1 justify-center]
+                        lg:flex-row '>
+                            <GridViewIcon/>
+                            <p className='text-gray-700 font-helvetica text-md font-normal leading-6'>Categories</p>
+                        </div>
                     </div>
-                </div>
 
-                <div className='showMiddlePortion hidden'>
+                    <div className='showMiddlePortion hidden'>
 
-
-                    <div className="hidden flex-row items-center gap-5 justify-center
+                        <div className="hidden flex-row items-center gap-5 justify-center
                         lg:flex ">
 
-                        <div className='flex flex-row items-center'>
-                        
-                            <select
-                                id="currency"
-                                name="currency"
-                                className="h-full rounded-md  bg-transparent pr-1 font-helvetica text-base font-normal leading-6"
-                            >
-                                <option>Home</option>
+                            <div className='flex flex-row items-center'>
 
-                            </select>
+                                <select
+                                    id="currency"
+                                    name="currency"
+                                    className="h-full rounded-md  bg-transparent pr-1 font-helvetica text-base font-normal leading-6"
+                                >
+                                    <option>Home</option>
+
+                                </select>
+
+                            </div>
+
+                            <div>
+                                <select
+                                    id="currency"
+                                    name="currency"
+                                    className="h-full rounded-md  bg-transparent pr-1 font-helvetica text-base font-normal leading-6"
+                                >
+                                    <option>Find Jobs</option>
+
+                                </select>
+                            </div>
+
+                            <div>
+                                <select
+                                    id="currency"
+                                    name="currency"
+                                    className="h-full rounded-md  bg-transparent pr-1 font-helvetica text-base font-normal leading-6"
+                                >
+                                    <option>Employers</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <select
+                                    id="currency"
+                                    name="currency"
+                                    className="h-full rounded-md  bg-transparent pr-1 font-helvetica text-base font-normal leading-6"
+                                >
+                                    <option>Candidates</option>
+
+                                </select>
+                            </div>
+
+                            <div>
+                                <select
+                                    id="currency"
+                                    name="currency"
+                                    className="h-full rounded-md  bg-transparent pr-1 font-helvetica text-base font-normal leading-6"
+                                >
+                                    <option>Pages</option>
+
+                                </select>
+                            </div>
 
                         </div>
-
-                        <div>
-                            <select
-                                id="currency"
-                                name="currency"
-                                className="h-full rounded-md  bg-transparent pr-1 font-helvetica text-base font-normal leading-6"
-                            >
-                                <option>Find Jobs</option>
-
-                            </select>
-                        </div>
-
-                        <div>
-                            <select
-                                id="currency"
-                                name="currency"
-                                className="h-full rounded-md  bg-transparent pr-1 font-helvetica text-base font-normal leading-6"
-                            >
-                                <option>Employers</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <select
-                                id="currency"
-                                name="currency"
-                                className="h-full rounded-md  bg-transparent pr-1 font-helvetica text-base font-normal leading-6"
-                            >
-                                <option>Candidates</option>
-
-                            </select>
-                        </div>
-
-                        <div>
-                            <select
-                                id="currency"
-                                name="currency"
-                                className="h-full rounded-md  bg-transparent pr-1 font-helvetica text-base font-normal leading-6"
-                            >
-                                <option>Pages</option>
-
-                            </select>
-                        </div>
-
                     </div>
-                </div>
+                {/* </div> */}
+
                 {
                     menuButton ?
                         <div className='active transition w-[85%] h-[93vh] bg-white fixed top-0 left-0 
@@ -123,8 +127,8 @@ function Navbar() {
                                         <ArrowForwardIosIcon className='text-gray-700' />
                                     </div>
                                 </div>
-                                <div className='w-full flex items-center justify-center bg-white'>
-                                    <button className='bg-[#14A077] py-4 px-20 rounded-xl text-white font-bold text-lg'>Post a Job</button>
+                                <div className='w-full h-6 flex items-center justify-center '>
+                                    <button className='bg-[#14A077] rounded-xl text-white font-bold text-lg'>Post a Job</button>
                                 </div>
                             </div>
 
@@ -139,7 +143,7 @@ function Navbar() {
                     <MenuIcon className=' transform scale-125 ' onClick={() => { setMenuButton(true) }} />
                 </div>
 
-                <button className='hidden showPostAJobButton px-6 py-2 rounded  font-sans font-semibold font-jakarta border-2 border-green-400'>Post a Job</button>
+                <button className='hidden showPostAJobButton px-9 py-4 rounded text-medium font-sans font-semibold font-jakarta border-[1px] border-[#14A077]'>Post a Job</button>
 
 
             </div>

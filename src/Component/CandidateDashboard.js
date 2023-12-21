@@ -22,7 +22,9 @@ import jobs from '../Assets/jobs.png';
 import review from '../Assets/Review.png'
 import views from '../Assets/views.png'
 import shortlisted from '../Assets/Shortlisted.png'
+import UploadFileIcon from '@mui/icons-material/UploadFile';
 import { useState } from 'react';
+import Select from 'react-select'
 
 function CandidateDashboard() {
     const [menuButton, setMenuButton] = useState(false)
@@ -30,9 +32,20 @@ function CandidateDashboard() {
     const [jobTitle, setJobTitle] = useState('')
     const [category, setCategory] = useState('')
     const [location, setLocation] = useState('')
-    const [jobType, setJobType] = useState('')
+    // const [jobType, setJobType] = useState('')
     const [minSalary, setMinSalary] = useState('')
     const [maxSalary, setMaxSalary] = useState('')
+    const [jobDescription, setJobDescription] = useState('')
+    const [applicationDeadlineDate, setApplicationDeadlineDate] = useState('')
+    const [externalURLforApplyJob, setExternalURLforApplyJob] = useState('')
+    const [jobApplyEmail, setJobApplyEmail] = useState('')
+    const [gender, setGender] = useState('')
+    const [tag, setTag] = useState('')
+    const [industry, setIndustry] = useState('')
+    const [qualification, setQualification] = useState('')
+    const [careerLevel, setCareerLevel] = useState('')
+    const [friendlyAddress, setFriendlyAddress] = useState('')
+
 
     let currentDate = new Date()
     const formattedDate = currentDate.toLocaleDateString('en-US', {
@@ -56,13 +69,110 @@ function CandidateDashboard() {
                 jobTitle: jobTitle,
                 category: category,
                 location: location,
-                jobType: jobType,
+                // jobType: jobType,
                 minSalary: minSalary,
                 maxSalary: maxSalary,
+                jobDescription: jobDescription,
+                jobType: type,
+                JobApplyType: JobApplyType,
+                SalaryType: SalaryType,
+                Experience: Experience,
+                applicationDeadlineDate: applicationDeadlineDate,
+                externalURLforApplyJob: externalURLforApplyJob,
+                jobApplyEmail:jobApplyEmail,
+                gender:gender,
+                tag:tag,
+                industry:industry,
+                qualification:qualification,
+                careerLevel:careerLevel,
+                friendlyAddress:friendlyAddress,
                 date: date
             })
         })
     }
+
+    // ---------React Select-----------
+
+
+
+    const handleChangeType = (selectedOption) => {
+        setType(selectedOption.value);
+    }
+
+    let [type, setType] = useState("")
+    const jobtypeOption = [
+        { value: "Freelance", label: "Freelance" },
+        { value: "Full Time", label: "Full Time" },
+        { value: "Intership", label: "Intership" },
+        { value: "Onsite", label: "Onsite" },
+        { value: "Part Time", label: "Part Time" },
+        { value: "Remote", label: "Remote" },
+
+    ]
+
+    const handleJobApplyType = (selectedOption) => {
+        setJobApplyType(selectedOption.value);
+    }
+
+    let [JobApplyType, setJobApplyType] = useState("")
+    const JobApplyTypeOption = [
+        { value: "Internal", label: "Internal" },
+        { value: "External URL", label: "External URL" },
+        { value: "By Email", label: "By Email" },
+        { value: "Call To Apply", label: "Call To Apply" }
+    ]
+
+    const handleSalaryType = (selectedOption) => {
+        setSalaryType(selectedOption.value);
+    }
+
+    let [SalaryType, setSalaryType] = useState("")
+    const SalaryTypeOption = [
+        { value: "Monthly", label: "Monthly" },
+        { value: "Weekly", label: "Weekly" },
+        { value: "Daily", label: "Daily" },
+        { value: "Hourly", label: "Hourly" },
+        { value: "Yearly", label: "Yearly" }
+    ]
+
+    const handleExperience = (selectedOption) => {
+        setExperience(selectedOption.value);
+    }
+
+    let [Experience, setExperience] = useState("")
+    const ExperienceOption = [
+        { value: "Fresh", label: "Fresh" },
+        { value: "1 Year", label: "1 Year" },
+        { value: "2 Year", label: "2 Year" },
+        { value: "3 Year", label: "3 Year" },
+        { value: "4 Year", label: "4 Year" },
+        { value: "5 Year", label: "5 Year" },
+    ]
+    console.log(type)
+    console.log(JobApplyType)
+    console.log(SalaryType)
+    console.log(Experience)
+    console.log(jobDescription)
+
+    const customStyles = {
+
+        option: (provided, state) => ({
+            ...provided,
+            color: 'none',
+            backgroundColor: 'transparent',
+            cursor: 'pointer',
+            ':hover': {
+                backgroundColor: 'transparent',
+                color: 'green',
+            },
+        }),
+
+        control: (provided) => ({
+            ...provided,
+            minHeight: '45px',
+        }),
+
+    };
 
     return (
         <div>
@@ -74,13 +184,19 @@ function CandidateDashboard() {
                     <div className='flex w-full flex-col items-center justify-between bg-white py-4'>
                         <div className='w-full flex flex-col gap-2 px-2'>
 
-                            <div className='flex gap-2 items-center before:text-black hover:text-green-700  rounded before:font-normal hover:font-semibold  hover:bg-[#F5F5F2] px-2 py-2'>
+                            <div className='flex gap-2 items-center before:text-black hover:text-green-700  rounded before:font-normal hover:font-semibold active:bg-[#F5F5F2]  hover:bg-[#F5F5F2] px-2 py-2'>
+
+                                <div><UploadFileIcon /></div>
+                                <h1 className='text-black'>Submit Job</h1>
+                            </div>
+
+                            {/* <div className='flex gap-2 items-center before:text-black hover:text-green-700  rounded before:font-normal hover:font-semibold  hover:bg-[#F5F5F2] px-2 py-2'>
 
                                 <div><DashboardIcon /></div>
                                 <h1 className='text-black'>Dashboard</h1>
-                            </div>
+                            </div> */}
 
-                            <div className='flex gap-2 items-center before:text-black hover:text-green-700  rounded before:font-normal hover:font-semibold  hover:bg-[#F5F5F2] px-2 py-2'>
+                            {/* <div className='flex gap-2 items-center before:text-black hover:text-green-700  rounded before:font-normal hover:font-semibold  hover:bg-[#F5F5F2] px-2 py-2'>
 
                                 <div><AccountCircleRoundedIcon /></div>
                                 <h1 className='text-black'>Profile</h1>
@@ -139,7 +255,7 @@ function CandidateDashboard() {
                             <div className='flex gap-2 items-center before:text-black hover:text-green-700 rounded before:font-normal hover:font-semibold  hover:bg-[#F5F5F2] px-2 py-2'>
                                 <LogoutIcon />
                                 <h1 className='text-black'>Logout</h1>
-                            </div>
+                            </div> */}
                         </div>
 
                     </div>
@@ -184,7 +300,8 @@ function CandidateDashboard() {
                             <div className='flex flex-col gap-3'>
                                 <div className='flex flex-col gap-3 '>
                                     <p className="font-semibold">Job Description</p>
-                                    <input className='w-full h-36 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'></input>
+                                    <input className='w-full h-36 text-top rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='JOb Description'
+                                        onChange={(e) => { setJobDescription(e.target.value) }}></input>
                                 </div>
                             </div>
                         </div>
@@ -209,30 +326,64 @@ function CandidateDashboard() {
                                     <div className='flex flex-col gap-3 '>
                                         <p className="font-semibold">Type</p>
 
-                                        <input
+                                        <Select
+                                            onChange={handleChangeType}
+                                            className='border-none'
+                                            options={jobtypeOption}
+                                            styles={customStyles}
+                                            placeholder='job type'
+                                            theme={(theme) => ({
+                                                ...theme,
+                                                colors: {
+                                                    ...theme.colors,
+                                                    primary25: 'transparent',
+                                                    primary: 'green',
+                                                },
+                                            })}
+                                        />
+
+                                        {/* <input
                                             onChange={(e) => { setJobType(e.target.value) }}
-                                            className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'></input>
+                                            className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'></input> */}
                                     </div>
                                 </div>
 
                                 <div className='flex flex-col gap-3'>
                                     <div className='flex flex-col gap-3 '>
                                         <p className="font-semibold">Application Deadline Date</p>
-                                        <input className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'></input>
+                                        <input className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'
+                                            onChange={(e) => { setApplicationDeadlineDate(e.target.value) }}
+                                        ></input>
                                     </div>
                                 </div>
 
                                 <div className='flex flex-col gap-3'>
                                     <div className='flex flex-col gap-3 '>
                                         <p className="font-semibold">Job Apply Type</p>
-                                        <input className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'></input>
+                                        <Select
+                                            onChange={handleJobApplyType}
+                                            className='border-none'
+                                            options={JobApplyTypeOption}
+                                            styles={customStyles}
+                                            placeholder='job type'
+                                            theme={(theme) => ({
+                                                ...theme,
+                                                colors: {
+                                                    ...theme.colors,
+                                                    primary25: 'transparent',
+                                                    primary: 'green',
+                                                },
+                                            })}
+                                        />
                                     </div>
                                 </div>
 
                                 <div className='flex flex-col gap-3'>
                                     <div className='flex flex-col gap-3 '>
                                         <p className="font-semibold">External URL for Apply Job</p>
-                                        <input className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'></input>
+                                        <input className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'
+                                            onChange={(e) => { setExternalURLforApplyJob(e.target.value) }}
+                                        ></input>
                                     </div>
                                 </div>
 
@@ -240,7 +391,9 @@ function CandidateDashboard() {
                                     <div className='flex flex-col gap-3 '>
                                         <p className="font-semibold">
                                             Job Apply Email</p>
-                                        <input className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'></input>
+                                        <input className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'
+                                        onChange={(e)=>{setJobApplyEmail(e.target.value)}}
+                                        ></input>
                                     </div>
                                 </div>
 
@@ -256,7 +409,21 @@ function CandidateDashboard() {
                                     <div className='flex flex-col gap-3 '>
                                         <p className="font-semibold">
                                             Salary Type</p>
-                                        <input className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'></input>
+                                        <Select
+                                            onChange={handleSalaryType}
+                                            className='border-none'
+                                            options={SalaryTypeOption}
+                                            styles={customStyles}
+                                            placeholder='job type'
+                                            theme={(theme) => ({
+                                                ...theme,
+                                                colors: {
+                                                    ...theme.colors,
+                                                    primary25: 'transparent',
+                                                    primary: 'green',
+                                                },
+                                            })}
+                                        />
                                     </div>
                                 </div>
 
@@ -287,7 +454,8 @@ function CandidateDashboard() {
                                         <p className="font-semibold">
                                             Gender
                                         </p>
-                                        <input className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'></input>
+                                        <input className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'
+                                        onChange={(e)=>{setGender(e.target.value)}}></input>
                                     </div>
                                 </div>
 
@@ -296,7 +464,9 @@ function CandidateDashboard() {
                                         <p className="font-semibold">
                                             Tag
                                         </p>
-                                        <input className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'></input>
+                                        <input className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'
+                                        onChange={(e)=>{setTag(e.target.value)}}
+                                        ></input>
                                     </div>
                                 </div>
 
@@ -305,7 +475,9 @@ function CandidateDashboard() {
                                         <p className="font-semibold">
                                             Industry
                                         </p>
-                                        <input className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'></input>
+                                        <input className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'
+                                        onChange={(e)=>{setIndustry(e.target.value)}}
+                                        ></input>
                                     </div>
                                 </div>
 
@@ -314,7 +486,9 @@ function CandidateDashboard() {
                                         <p className="font-semibold">
                                             Qualification
                                         </p>
-                                        <input className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'></input>
+                                        <input className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'
+                                        onChange={(e)=>{setQualification(e.target.value)}}
+                                        ></input>
                                     </div>
                                 </div>
 
@@ -324,7 +498,9 @@ function CandidateDashboard() {
                                         <p className="font-semibold">
                                             Career Level
                                         </p>
-                                        <input className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'></input>
+                                        <input className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'
+                                        onChange={(e)=>{setCareerLevel(e.target.value)}}
+                                        ></input>
                                     </div>
                                 </div>
 
@@ -333,7 +509,21 @@ function CandidateDashboard() {
                                         <p className="font-semibold">
                                             Experience
                                         </p>
-                                        <input className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'></input>
+                                        <Select
+                                            onChange={handleExperience}
+                                            className='border-none'
+                                            options={ExperienceOption}
+                                            styles={customStyles}
+                                            placeholder='job type'
+                                            theme={(theme) => ({
+                                                ...theme,
+                                                colors: {
+                                                    ...theme.colors,
+                                                    primary25: 'transparent',
+                                                    primary: 'green',
+                                                },
+                                            })}
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -371,7 +561,9 @@ function CandidateDashboard() {
                             <div className='flex flex-col gap-3'>
                                 <div className='flex flex-col gap-3 '>
                                     <p className="font-semibold">Friendly Address</p>
-                                    <input className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'></input>
+                                    <input className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'
+                                    onChange={(e)=>{setFriendlyAddress(e.target.value)}}
+                                    ></input>
                                 </div>
                             </div>
 

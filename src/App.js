@@ -10,13 +10,13 @@ import JobDescription from './Component/jobDescription';
 function App() {
   return (
     <div className='overflow-hidden'>
-      {/* <Navbar/>
+      <Navbar/>
       <Content/>
-      <Footer/> */}
+      <Footer/>
       {/* <Scrollable/> */}
       {/* <CandidateDashboard/> */}
       {/* <Practice /> */}
-      <JobDescription/>
+      {/* <JobDescription/> */}
 
     </div>
   );
