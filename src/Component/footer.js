@@ -10,12 +10,13 @@ import SendIcon from '@mui/icons-material/Send';
 function Footer() {
     return (
         <div className='w-full px-4 py-5 overflow-hidden bg-[#F5F5F2] flex flex-col gap-4 mt-10
-        md:px-10 '>
+            md:px-10 
+            lg:px-14'>
 
-            <div className='flex  flex-wrap items-center justify-between  gap-4
-            md:py-20'>
+            <div className='flex  flex-wrap items-center justify-between  gap-4 border-gray-300 border-b-[1px]
+                md:py-10'>
                 <div className='w-[90%] h-[10vh]
-                md:w-[20%] md:h-[10vh]'>
+                    md:w-[20%] md:h-[10vh]'>
                     <img src={logo} className='w-full h-full object-fill'></img>
                 </div>
 
@@ -41,10 +42,10 @@ function Footer() {
             </div>
 
             <div className='flex flex-col gap-3
-            md:flex-row'>
+                md:flex-row md:py-8'>
                 <div className='flex flex-wrap gap-5 py-2
-                sm:w-[50%]
-                md:flex-col'>
+                    sm:w-[50%]
+                    md:flex-col '>
                     <div className='flex gap-4'>
                         <div className='w-12 h-12'>
                             <img src={PhoneLogo} className='w-full h-full object-fill'></img>
@@ -75,9 +76,9 @@ function Footer() {
                     </div>
 
                 </div>
-                {/* md:gap-2' */}
-                <div class='w-full grid grid-cols-2 gap-6 
-            md:py-20 md:grid md:grid-cols-4 md:gap-16 md:px-4'>
+              
+                <div className='w-full grid grid-cols-2 gap-6 
+                     md:grid md:grid-cols-4 md:gap-16 md:px-4'>
 
                     <div className='flex flex-col gap-5 '>
                         <p className='font-bold'>Quick Links</p>

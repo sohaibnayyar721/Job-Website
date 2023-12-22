@@ -26,6 +26,7 @@ import UploadFileIcon from '@mui/icons-material/UploadFile';
 import { useState } from 'react';
 import Select from 'react-select'
 
+
 function CandidateDashboard() {
     const [menuButton, setMenuButton] = useState(false)
 
@@ -171,6 +172,7 @@ function CandidateDashboard() {
             ...provided,
             minHeight: '45px',
         }),
+        indicatorSeparator: () => ({ display: "none" }),
 
     };
 

@@ -6,9 +6,9 @@ import { useState } from 'react';
 function SideBar() {
     const [menuButton, setMenuButton] = useState(false)
     return (
-        <div className='w-[85%] h-[90vh] bg-white fixed top-0 left-0
+        <div className='w-[85%] h-[90vh] bg-red-300 fixed top-0 left-0
     '>
-            <div className='flex items-center justify-between py-4 px-2 border-b-2 border-gray-300'>
+            <div className='flex items-center justify-between bg-red-300 py-4 px-2 border-b-2 border-gray-300'>
                 <img className='w-25 h-10' src={logo}></img>
                 <CloseIcon onClick={() => { setMenuButton(false) }} />
             </div>

@@ -13,21 +13,24 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import PinterestIcon from '@mui/icons-material/Pinterest';
 import Footer from './footer';
+import './jobDescription.css'
 import { useState } from 'react';
 
-function JobDescription() {
-
+function JobDescription({ getSingleJObId }) {
+    
     let [descriptionData, setdescriptionData] = useState([])
     async function GetDescriptionData(id) {
-        const data = await fetch(`http://localhost:4500/`, {
+        const data = await fetch(`http://localhost:4500/job/${getSingleJObId}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
             },
+            // body: JSON.stringify({getSingleJObId:getSingleJObId})
         })
 
         const DescriptionData = await data.json()
-        setdescriptionData(DescriptionData)
+        const jobData = DescriptionData.jobs
+        setdescriptionData(jobData)
     }
 
     //    descriptionData.map((data)=>{
@@ -42,24 +45,28 @@ function JobDescription() {
 
     return (
 
-        <div>
+        <div className='overflow-hidden'>
             <Navbar />
-            {/* border-gray-300 border-b-2 */}
-            <div className='w-full h-[40vh] '>
-                <img src={Office} className='w-full h-full fill'></img>
+
+            <div className='w-full h-[40vh]
+            md:h-[60vh]
+            lg:h-[70vh]'>
+                <img src={Office} className='w-full h-full contain'></img>
             </div>
-
-
 
             {
                 descriptionData.map((data) => {
                     return (
-                        <div className='w-full flex justify-between px-16 py-12 flex-wrap'>
-                            <div className='w-[60%] flex flex-col gap-4'>
+                        <div key={data._id} className='w-full px-5 py-5 flex flex-col gap-6 
+                             lg:flex-row  lg:justify-between
+                             md:px-14 md:py-12 '>
+
+                            <div className='flex w-full flex-col 
+                                lg:w-[63%]'>
                                 <div className='flex flex-col py-6 border-gray-300 border-b-2'>
-                                    <div className='flex flex-col items-center justify-center gap-4 flex-wrap
-                        md:items-center md:justify-between md:flex-row'>
-                                        <div className='flex gap-4  ' >
+                                    <div className='setCenter flex flex-col items-center justify-center gap-4 flex-wrap
+                                        md:items-center md:justify-between md:flex-row'>
+                                        <div className='flex gap-4 ' >
                                             <div className='w-14 h-14 object-contain'>
                                                 <img src={SoftwareEngineer}></img>
                                             </div>
@@ -73,12 +80,12 @@ function JobDescription() {
 
                                                 <div className='w-full flex items-center gap-2 flex-wrap -300 '>
                                                     <div className='flex items-center'>
-                                                        <LocationOnOutlinedIcon className='text-gray-500 transform scale-90' />
+                                                        <LocationOnOutlinedIcon className='text-gray-500 ' />
                                                         <p className='text-gray-600 font-plus-jakarta-sans text-sm font-normal'>Karachi, Pakistan</p>
                                                     </div>
 
                                                     <div className='flex gap-2 items-center justify-center'>
-                                                        <CalendarTodayIcon className='text-gray-600 transform scale-75' />
+                                                        <CalendarTodayIcon className='text-gray-600 ' />
                                                         <p className='text-gray-600 font-plus-jakarta-sans text-sm font-normal'>23, May 2023</p>
                                                     </div>
                                                 </div>
@@ -91,13 +98,12 @@ function JobDescription() {
                                             </div>
                                         </div>
 
-                                        <div className='flex flex-col gap-3 px-r-4 
-                    md:items-end '>
-                                            <div className='flex gap-4 
-                        md:flex-col'>
+                                        <div className='setRigthcenter flex flex-col gap-3 px-r-4 
+                                            md:items-end '>
+                                            <div className='flex flex-wrap gap-4 
+                                                md:flex-col'>
 
-                                                <div className='flex gap-4 md:items-end 
-                            '>
+                                                <div className='setCenter flex gap-4 justify-end '>
                                                     <div className='w-10 h-10 rounded-full object-contain border-2 border-gray-400 flex items-center justify-center'>
                                                         <ShareIcon />
                                                     </div>
@@ -136,24 +142,26 @@ function JobDescription() {
                                 </div>
 
                                 <div className='flex flex-col gap-6  mt-4'>
-                                    <div className='flex  gap-3 items-center'>
+                                    <div className='flex  gap-3 items-center flex-wrap'>
                                         <p className='text-[#121212] text-base text-normal font-semibold'>Share this post: </p>
 
-                                        <FacebookRoundedIcon
-                                            style={{ fontSize: '40px' }}
-                                            className='text-black h-28 w-28' />
+                                        <div className='flex  gap-3 items-center'>
+                                            <FacebookRoundedIcon
+                                                style={{ fontSize: '40px' }}
+                                                className='text-black h-28 w-28' />
 
-                                        <TwitterIcon
-                                            style={{ fontSize: '40px' }}
-                                            className='text-black h-28 w-28' />
+                                            <TwitterIcon
+                                                style={{ fontSize: '40px' }}
+                                                className='text-black h-28 w-28' />
 
-                                        <LinkedInIcon
-                                            style={{ fontSize: '40px' }}
-                                            className='text-black h-28 w-28' />
+                                            <LinkedInIcon
+                                                style={{ fontSize: '40px' }}
+                                                className='text-black h-28 w-28' />
 
-                                        < PinterestIcon
-                                            style={{ fontSize: '40px' }}
-                                            className='text-black h-28 w-28' />
+                                            < PinterestIcon
+                                                style={{ fontSize: '40px' }}
+                                                className='text-black h-28 w-28' />
+                                        </div>
                                     </div>
 
                                     <div className='flex gap-5 w-full h-52 overflow-x-scroll'>
@@ -166,79 +174,78 @@ function JobDescription() {
                                     </div>
 
                                     <div className='w-full h-[60vh] rounded-lg'>
-                        <iframe
-                            width="100%"
-                            height="100%"
-                            
-                            src="https://www.youtube.com/embed/TUN8PtDGRaA?controls=0&autoplay=1"
-                            title="YouTube video player"
-                            frameborder="0"
-                            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen
-                        ></iframe>;
-                    </div>
+                                        <iframe
+                                            width="100%"
+                                            height="100%"
+                                            src="https://www.youtube.com/embed/TUN8PtDGRaA?controls=0&autoplay=1"
+                                            title="YouTube video player"
+                                            frameBorder="0"
+                                            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        // allowfullscreen
+                                        ></iframe>
+                                    </div>
                                 </div>
 
-
-
                             </div>
-                            <div className='w-[35%] flex flex-col gap-8'>
+
+                            <div className='w-full flex flex-col gap-8
+                            lg:w-[30%]'>
 
                                 <div className='w-full rounded bg-[#F5F5F5] px-5 py-3 flex flex-col gap-2'>
                                     <p className='text-xl font-semibold mt-3'>Information</p>
 
-                                    <div className='flex flex-col'>
-                                        <div className='flex items-center justify-between border-b-2 border-gray-300 py-4'>
+                                    <div className='flex flex-col '>
+                                        <div className='flex flex-wrap items-center justify-between border-b-2 border-gray-300 py-4 '>
                                             <p className='text-lg text-gray-500 font-normal'>Date Posted</p>
                                             <p className='text-lg font-normal'>{data.date}</p>
                                         </div>
 
-                                        <div className='flex items-center justify-between border-b-2 border-gray-300 py-4'>
+                                        <div className='flex flex-wrap  items-center justify-between border-b-2 border-gray-300 py-4'>
                                             <p className='text-lg text-gray-500 font-normal'>Location</p>
                                             <p className='text-lg font-normal'>{data.location}</p>
                                         </div>
 
-                                        <div className='flex items-center justify-between border-b-2 border-gray-300 py-4'>
+                                        <div className='flex flex-wrap  items-center justify-between border-b-2 border-gray-300 py-4'>
                                             <p className=' text-lg text-gray-500 font-normal'>Category</p>
                                             <p className='text-lg  font-normal'>{data.category}</p>
                                         </div>
 
-                                        <div className='flex items-center justify-between border-b-2 border-gray-300 py-4'>
+                                        <div className='flex flex-wrap  items-center justify-between border-b-2 border-gray-300 py-4'>
                                             <p className='text-lg text-gray-500 font-normal'>Offered Salary:</p>
                                             <p className='text-lg font-normal'>{data.minSalary} - {data.maxSalary} / month</p>
                                         </div>
 
-                                        <div className='flex items-center justify-between border-b-2 border-gray-300 py-4'>
+                                        <div className='flex flex-wrap  items-center justify-between border-b-2 border-gray-300 py-4'>
                                             <p className='text-lg text-gray-500 font-normal'>Expiration date</p>
                                             <p className='text-lg font-normal'>{data.applicationDeadlineDate}</p>
                                         </div>
 
-                                        <div className='flex items-center justify-between border-b-2 border-gray-300 py-4'>
+                                        <div className='flex flex-wrap  items-center justify-between border-b-2 border-gray-300 py-4'>
                                             <p className='text-lg text-gray-500 font-normal'>Experience</p>
                                             <p className='text-lg font-normal'>{data.experience}</p>
                                         </div>
 
-                                        <div className='flex items-center justify-between border-b-2 border-gray-300 py-4'>
+                                        <div className='flex flex-wrap  items-center justify-between border-b-2 border-gray-300 py-4'>
                                             <p className='text-lg text-gray-500 font-normal'>Gender</p>
                                             <p className='text-lg font-normal'>{data.gender}</p>
                                         </div>
 
-                                        <div className='flex items-center justify-between border-b-2 border-gray-300 py-4'>
+                                        <div className='flex flex-wrap  items-center justify-between border-b-2 border-gray-300 py-4'>
                                             <p className='text-lg text-gray-500 font-normal'>Industry</p>
                                             <p className='text-lg font-normal'>Seo, Banking</p>
                                         </div>
 
-                                        <div className='flex items-center justify-between border-b-2 border-gray-300 py-4'>
+                                        <div className='flex flex-wrap  items-center justify-between border-b-2 border-gray-300 py-4'>
                                             <p className='text-lg text-gray-500 font-normal'>Qualification</p>
                                             <p className='text-lg font-normal'>{data.qualification}</p>
                                         </div>
 
-                                        <div className='flex items-center justify-between border-b-2 border-gray-300 py-4'>
+                                        <div className='flex flex-wrap  items-center justify-between border-b-2 border-gray-300 py-4'>
                                             <p className='text-lg text-gray-500 font-normal'>Career Level</p>
                                             <p className='text-lg font-normal'>{data.careerLevel}</p>
                                         </div>
 
-                                        <div className='flex items-center justify-between py-4'>
+                                        <div className='flex flex-wrap items-center justify-between py-4'>
                                             <p className='text-lg text-gray-500 font-normal'>Date Posted</p>
                                             <p className='text-lg font-normal'>{data.date}</p>
                                         </div>
@@ -286,7 +293,7 @@ function JobDescription() {
                                             <p className='text-lg font-normal'>apricoltd@apus.com</p>
                                         </div>
 
-                                        <div className='flex items-center justify-between py-4'>
+                                        <div className='flex flex-wrap items-center justify-between py-4'>
                                             <p className='text-lg text-gray-500 font-normal'>Socials:</p>
                                             <div className='flex  gap-3 items-center'>
 
@@ -308,7 +315,7 @@ function JobDescription() {
                                             </div>
                                         </div>
 
-                                        <button className='hover:bg-green-600 hover:text-white w-full border-[1px] border-green-600 h-14 mt-4 text-base font-semibold rounded'>envato.com</button>
+                                        <button className='hover:bg-[#14A077] hover:text-white w-full border-[1px] border-green-600 h-14 mt-4 text-base font-semibold rounded'>envato.com</button>
 
                                     </div>
 
@@ -328,7 +335,7 @@ function JobDescription() {
                                     </div>
 
                                     <div className='flex flex-col gap-6 items-center'>
-                                        <button className='hover:bg-green-700 bg-green-600 text-white w-full  h-12 mt-4 text-base font-bold rounded'>
+                                        <button className='hover:bg-green-700 bg-[#14A077] text-white w-full  h-12 mt-4 text-base font-bold rounded'>
                                             Send Message</button>
 
                                         <a href='' className=''>Private Message</a>
