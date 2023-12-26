@@ -49,7 +49,7 @@ function Content(props) {
     }
 
     async function getFeaturedJob() {
-        const getFeaturedJob = await fetch('http://localhost:4500/getData', {
+        const getFeaturedJob = await fetch('http://localhost:4500/getAllData', {
 
             method: "GET",
             headers: {
@@ -58,8 +58,8 @@ function Content(props) {
         })
 
         const response = await getFeaturedJob.json()
-        setGetFeaturedJobData(response.featuredJob)
-        setGetTotalJob(response.jobForEachCountry[0])
+        setGetFeaturedJobData(response.jobsData)
+        // setGetTotalJob(response.jobForEachCountry[0])
 
     }
 

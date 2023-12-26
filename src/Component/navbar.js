@@ -10,6 +10,7 @@ import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import PermIdentitySharpIcon from '@mui/icons-material/PermIdentitySharp';
 import GridViewIcon from '@mui/icons-material/GridView';
+import { useEffect } from 'react';
 import './navbar.css'
 
 function Navbar() {
@@ -17,6 +18,15 @@ function Navbar() {
     const style = {
         fontFamily: '"Plus Jakarta Sans", sans-serif',
     };
+
+    useEffect(() => {
+        const WOW = require("wow.js");
+        window.wow = new WOW({
+            live: false,
+        });
+        window.wow.init();
+    }, [])
+
     return (
         <div className=' flex flex-wrap overflow-hidden bg-white ' >
             <div className="navbar w-full flex flex-row px-5 items-center  justify-between flex-wrap">
@@ -98,7 +108,7 @@ function Navbar() {
 
                 {
                     menuButton ?
-                        <div className=' w-[85%] h-[100vh] bg-white fixed top-0 left-0 px-5
+                        <div className='wow wow-exclude w-[85%] h-[100vh] bg-white fixed z-10 top-0 left-0 px-5
                             md:hidden'>
                             <div className='flex items-center justify-between py-4  border-b-2 border-gray-300'>
                                 <img className='w-25 h-10' src={logo}></img>

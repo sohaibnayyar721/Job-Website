@@ -7,7 +7,10 @@ import Scrollable from './Component/Scrollable';
 import CandidateDashboard from './Component/CandidateDashboard';
 import Practice from './Component/practice';
 import JobDescription from './Component/jobDescription';
+import Login from './Component/Login';
+import FormJobs from './Component/JobsForm'
 import { BrowserRouter, Routes, Route, Switch, useRoutes, } from "react-router-dom";
+import Employeer from './Component/Employeer';
 import { useState } from 'react';
 function App() {
 
@@ -23,8 +26,14 @@ function App() {
           <Route exact path="/" element={<Content singleJobId={singleJobId} />} />
           <Route exact path="/jobDescription" element={<JobDescription getSingleJObId={getSingleJObId}/>} />
           <Route exact path="/candidateDashboard" element={<CandidateDashboard />} />
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/forms" element={<FormJobs />} />
+          <Route exact path="/practice" element={<Practice />} />
+          <Route exact path="/employeer" element={<Employeer />} />
+          
         </Routes>
       </BrowserRouter>
+      {/* <Login /> */}
       {/* <Content />
       <CandidateDashboard />
       <JobDescription /> */}
