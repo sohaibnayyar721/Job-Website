@@ -49,7 +49,8 @@ function Content(props) {
     }
 
     async function getFeaturedJob() {
-        const getFeaturedJob = await fetch('http://localhost:4500/getAllData', {
+        try{
+            const getFeaturedJob = await fetch('http://localhost:4500/getAllData', {
 
             method: "GET",
             headers: {
@@ -59,6 +60,10 @@ function Content(props) {
 
         const response = await getFeaturedJob.json()
         setGetFeaturedJobData(response.jobsData)
+        }catch(err){
+            console.log("Server Can't respond")
+        }
+
         // setGetTotalJob(response.jobForEachCountry[0])
 
     }

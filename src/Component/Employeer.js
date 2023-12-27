@@ -9,6 +9,7 @@ import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import ArticleIcon from '@mui/icons-material/Article';
 import LogoutIcon from '@mui/icons-material/Logout';
 import DeleteIcon from '@mui/icons-material/Delete';
+import SearchIcon from '@mui/icons-material/Search';
 import HttpsIcon from '@mui/icons-material/Https';
 import GroupsIcon from '@mui/icons-material/Groups';
 import MessageIcon from '@mui/icons-material/Message';
@@ -26,6 +27,11 @@ import shortlisted from '../Assets/Shortlisted.png'
 import UploadFileIcon from '@mui/icons-material/UploadFile';
 import { useState } from 'react';
 import Select from 'react-select'
+import SoftwareEngineer from '../Assets/SoftwareEngineer.png'
+import Heart from '../Assets/Heart.png'
+import DollarIcon from '../Assets/DollarIcon.png'
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 
 function Employeer() {
     const [menuButton, setMenuButton] = useState(false)
@@ -612,18 +618,18 @@ function Employeer() {
 
                 </div> */}
 
-                {/* Right Side */}
+ {/* Right Side */}
                 {/* Dashboard */}
                 <div className='flex overflow-scroll h-[80vh] flex-col gap-8 w-full  bg-[#eeeeee99] px-8 py-6'>
 
                     <div className='flex flex-col gap-4 w-full text-green-700 '>
                         <div className='border-l-[5px] border-green-700 px-3 '>
-                            <p className='text-black font-bold text-xl'>Applications statistics</p>
+                            <p className='text-black font-semibold text-xl'>Applications statistics</p>
                         </div>
                     </div>
 
                     <div className='flex gap-6 '>
-                        <div className='bg-white rounded-md gap-3 h-32 w-72 flex px-3 items-center'>
+                        <div className='bg-white rounded-md gap-3 h-32 w-80 flex px-3 items-center'>
                             <img src={jobs} className='w-20 h-20'></img>
                             <div className='flex flex-col gap-2'>
                                 <p className='text-3xl font-semibold'>2</p>
@@ -654,343 +660,83 @@ function Employeer() {
                                 <p className='text-lg font-normal'> Shortlisted</p>
                             </div>
                         </div>
-
-
                     </div>
 
-                    {/* <div className='bg-white'>
-                        <div className='flex flex-col border-gray-300 border-b-[1px] gap-5 px-8 py-8'>
-
-                            <div className='flex flex-col gap-6'>
-                                <p className='font-semibold text-xl'>General</p>
-                                <div className='flex flex-col gap-3 '>
-                                    <p className="font-semibold">Featured Image</p>
-                                    <div className='flex gap-6'>
-                                        <img src={photo1} className='w-32 h-32'></img>
-                                        <button className='w-32 h-12 font-semibold before:text-black hover:bg-green-700 hover:text-white border-[1px] rounded border-green-700'>Browse</button>
-                                    </div>
-                                </div>
-                            </div>
+                    <div className='flex gap-3'>
+                        <div className='w-[70%] h-72 bg-white'>
 
                         </div>
 
-                        <div className='flex flex-col border-gray-300 border-b-[1px] gap-5 px-8 py-8'>
+                        <div className='w-[30%] h-72 bg-white'>
 
-                            <div className='flex flex-col gap-6'>
-                                <p className='font-semibold text-xl'>Information</p>
-                            </div>
-
-                            <div className='grid grid-cols-2 gap-6'>
-
-                                <div className='flex flex-col gap-3'>
-                                    <div className='flex flex-col gap-3 '>
-                                        <p className="font-semibold">Full Name </p>
-                                        <input
-                                            onChange={(e) => { setFullName(e.target.value) }}
-                                            className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'></input>
-                                    </div>
-                                </div>
-
-                                <div className='flex flex-col gap-3'>
-                                    <div className='flex flex-col gap-3 '>
-                                        <p className="font-semibold">Date of Birth </p>
-                                        <input
-                                            onChange={(e) => { setFullName(e.target.value) }}
-                                            className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'></input>
-                                    </div>
-                                </div>
-
-                                <div className='flex flex-col gap-3'>
-                                    <div className='flex flex-col gap-3 '>
-                                        <p className="font-semibold">Phone Number</p>
-                                        <input
-                                            onChange={(e) => { setFullName(e.target.value) }}
-                                            className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'></input>
-                                    </div>
-                                </div>
-
-                                <div className='flex flex-col gap-3'>
-                                    <div className='flex flex-col gap-3 '>
-                                        <p className="font-semibold">Email</p>
-                                        <input
-                                            onChange={(e) => { setFullName(e.target.value) }}
-                                            className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'></input>
-                                    </div>
-                                </div>
-
-
-                                <div className='flex flex-col gap-3'>
-                                    <div className='flex flex-col gap-3 '>
-                                        <p className="font-semibold">Gender</p>
-
-                                        <Select
-                                            onChange={handleChangeType}
-                                            className='border-none'
-                                            options={jobtypeOption}
-                                            styles={customStyles}
-                                            placeholder='job type'
-                                            theme={(theme) => ({
-                                                ...theme,
-                                                colors: {
-                                                    ...theme.colors,
-                                                    primary25: 'transparent',
-                                                    primary: 'green',
-                                                },
-                                            })}
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className='flex flex-col gap-3'>
-                                    <div className='flex flex-col gap-3 '>
-                                        <p className="font-semibold">Age</p>
-
-                                        <Select
-                                            onChange={handleChangeType}
-                                            className='border-none'
-                                            options={jobtypeOption}
-                                            styles={customStyles}
-                                            placeholder='job type'
-                                            theme={(theme) => ({
-                                                ...theme,
-                                                colors: {
-                                                    ...theme.colors,
-                                                    primary25: 'transparent',
-                                                    primary: 'green',
-                                                },
-                                            })}
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className='flex flex-col gap-3'>
-                                    <div className='flex flex-col gap-3 '>
-                                        <p className="font-semibold">Salary</p>
-
-                                        <Select
-                                            onChange={handleChangeType}
-                                            className='border-none'
-                                            options={jobtypeOption}
-                                            styles={customStyles}
-                                            placeholder='job type'
-                                            theme={(theme) => ({
-                                                ...theme,
-                                                colors: {
-                                                    ...theme.colors,
-                                                    primary25: 'transparent',
-                                                    primary: 'green',
-                                                },
-                                            })}
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className='flex flex-col gap-3'>
-                                    <div className='flex flex-col gap-3 '>
-                                        <p className="font-semibold">Salary Type</p>
-
-                                        <Select
-                                            onChange={handleChangeType}
-                                            className='border-none'
-                                            options={jobtypeOption}
-                                            styles={customStyles}
-                                            placeholder='job type'
-                                            theme={(theme) => ({
-                                                ...theme,
-                                                colors: {
-                                                    ...theme.colors,
-                                                    primary25: 'transparent',
-                                                    primary: 'green',
-                                                },
-                                            })}
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className='flex flex-col gap-3'>
-                                    <div className='flex flex-col gap-3 '>
-                                        <p className="font-semibold">Qualification</p>
-
-                                        <Select
-                                            onChange={handleChangeType}
-                                            className='border-none'
-                                            options={jobtypeOption}
-                                            styles={customStyles}
-                                            placeholder='job type'
-                                            theme={(theme) => ({
-                                                ...theme,
-                                                colors: {
-                                                    ...theme.colors,
-                                                    primary25: 'transparent',
-                                                    primary: 'green',
-                                                },
-                                            })}
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className='flex flex-col gap-3'>
-                                    <div className='flex flex-col gap-3 '>
-                                        <p className="font-semibold">Experience</p>
-
-                                        <Select
-                                            onChange={handleChangeType}
-                                            className='border-none'
-                                            options={jobtypeOption}
-                                            styles={customStyles}
-                                            placeholder='job type'
-                                            theme={(theme) => ({
-                                                ...theme,
-                                                colors: {
-                                                    ...theme.colors,
-                                                    primary25: 'transparent',
-                                                    primary: 'green',
-                                                },
-                                            })}
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className='flex flex-col gap-3'>
-                                    <div className='flex flex-col gap-3 '>
-                                        <p className="font-semibold">Categories</p>
-
-                                        <Select
-                                            onChange={handleChangeType}
-                                            className='border-none'
-                                            options={jobtypeOption}
-                                            styles={customStyles}
-                                            placeholder='job type'
-                                            theme={(theme) => ({
-                                                ...theme,
-                                                colors: {
-                                                    ...theme.colors,
-                                                    primary25: 'transparent',
-                                                    primary: 'green',
-                                                },
-                                            })}
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className='flex flex-col gap-3'>
-                                    <div className='flex flex-col gap-3 '>
-                                        <p className="font-semibold">Languages</p>
-
-                                        <Select
-                                            onChange={handleChangeType}
-                                            className='border-none'
-                                            options={jobtypeOption}
-                                            styles={customStyles}
-                                            placeholder='job type'
-                                            theme={(theme) => ({
-                                                ...theme,
-                                                colors: {
-                                                    ...theme.colors,
-                                                    primary25: 'transparent',
-                                                    primary: 'green',
-                                                },
-                                            })}
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className='flex flex-col gap-3'>
-                                    <div className='flex flex-col gap-3 '>
-                                        <p className="font-semibold">Job Title</p>
-                                        <input className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'
-                                            onChange={(e) => { setApplicationDeadlineDate(e.target.value) }}
-                                        ></input>
-                                    </div>
-                                </div>
-
-                                <div className='flex flex-col gap-3'>
-                                    <div className='flex flex-col gap-3 '>
-                                        <p className="font-semibold">Tags</p>
-                                        <input className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'
-                                            onChange={(e) => { setApplicationDeadlineDate(e.target.value) }}
-                                        ></input>
-                                    </div>
-                                </div>
-
-                                <div className='flex flex-col gap-3'>
-                                    <div className='flex flex-col gap-3 '>
-                                        <p className="font-semibold">Show my profile</p>
-
-                                        <Select
-                                            onChange={handleChangeType}
-                                            className='border-none'
-                                            options={jobtypeOption}
-                                            styles={customStyles}
-                                            placeholder='job type'
-                                            theme={(theme) => ({
-                                                ...theme,
-                                                colors: {
-                                                    ...theme.colors,
-                                                    primary25: 'transparent',
-                                                    primary: 'green',
-                                                },
-                                            })}
-                                        />
-                                    </div>
-                                </div>
-
-                            </div>
                         </div>
+                    </div>
 
-                        <div className='flex flex-col border-gray-300 border-b-[1px] gap-12 px-8 py-8'>
+                    <div className='bg-white flex flex-col gap-5 px-6 py-4'>
+                        <p className='font-medium text-xl'>Jobs Applied Recently </p>
+                        <div className='w-full h-72'>
+                            <div className='w-full border border-solid hover:shadow-xl hover:border-[#61CE70] border-gray-300 p-4  flex flex-col gap-4'
+                            >
+
+                                <div className='flex gap-4
+                                                md:justify-between'>
+
+                                    <div className='flex gap-4 ' >
+                                        <div className='w-14 h-14 object-contain'>
+                                            <img src={SoftwareEngineer}></img>
+                                        </div>
+
+                                        <div className='flex flex-col gap-2'>
+                                            <p className='text-[#14A077] font-plus-jakarta-sans text-sm font-semibold'>jobTitle</p>
+                                            <div className='flex gap-2 items-center'>
+                                                <p className='text-black font-plus-jakarta-sans text-xl font-bold'>category</p>
+                                                <div className='w-4 h-4 rounded-full bg-[#504CFE]'></div>
+
+                                            </div>
+
+                                            <div className='w-full flex items-center gap-2 flex-wrap -300 '>
+                                                <div className='flex items-center'>
+
+                                                    <LocationOnOutlinedIcon className='text-gray-500 transform scale-90' />
+                                                    <p className='text-gray-600 font-plus-jakarta-sans text-sm font-normal'>location</p>
+                                                </div>
+
+                                                <div className='flex gap-2 items-center justify-center'>
+                                                    <CalendarTodayIcon className='text-gray-600 transform scale-75' />
+                                                    <p className='text-gray-600 font-plus-jakarta-sans text-sm font-normal'>date</p>
+                                                </div>
 
 
+                                            </div>
+
+                                        </div>
 
 
-                            <div className='flex flex-col gap-5'>
-                                <p className='font-semibold text-xl'>About Me</p>
-                                <input className='w-full h-36 text-top rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='JOb Description'
-                                    onChange={(e) => { setJobDescription(e.target.value) }}></input>
-                            </div>
-                        </div>
-
-                        <div className='flex flex-col border-gray-300 border-b-[1px] gap-5 px-8 py-8'>
+                                    </div>
 
 
-                            <div className='flex flex-col gap-6'>
-                                <p className='font-semibold text-xl'>Contact Information</p>
-                            </div>
+                                    <div className='w-10 h-10 rounded-full object-contain border-2 border-gray-400 flex items-center justify-center'>
+                                        <img src={Heart}></img>
+                                    </div>
 
-
-                            <div className='flex flex-col gap-3'>
-                                <div className='flex flex-col gap-3 '>
-                                    <p className="font-semibold">Friendly Address</p>
-                                    <input className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'
-                                        onChange={(e) => { setFriendlyAddress(e.target.value) }}
-                                    ></input>
                                 </div>
-                            </div>
 
-                            <div className='flex flex-col gap-3'>
-                                <div className='flex flex-col gap-3 '>
-                                    <p className="font-semibold">Location</p>
-                                    <input
-                                        onChange={(e) => { setLocation(e.target.value) }}
-                                        className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'></input>
+                                <div>
+                                    <button className='flex items-center justify-start py-2 px-6 rounded-3xl bg-[#F1F1F1]'>
+                                        Part Time
+                                    </button>
                                 </div>
-                            </div>
 
-                            <div className='flex flex-col gap-3'>
-                                <div className='flex flex-col gap-3 '>
-                                    <p className="font-semibold">Maps Location</p>
-                                    <input className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'></input>
-                                </div>
-                            </div>
-
-                            <div className='flex flex-col gap-3'>
-                                <div className='flex flex-col gap-3 '>
-                                    <p className="font-semibold">Introduction Video URL</p>
-                                    <input className='w-full h-12 rounded px-3 outline-green-700 outline-[0.5px] bg-[#F5F5F5]' placeholder='hello'></input>
+                                <div className='flex items-center justify-between border-t-2 border-gray-200 py-4'>
+                                    <div className='flex gap-3 items-center'>
+                                        <img src={DollarIcon} className='w-6 h-6'></img>
+                                        <p className='text-black font-plus-jakarta-sans text-lg font-semibold'>minSalary - maxSalary <span className='text-[#64666C]'>/ month</span></p>
+                                    </div>
+                                    <p className='text-[#64666C]'>date</p>
                                 </div>
                             </div>
                         </div>
-                    </div> */}
+                    </div>
 
                     <button
                         onClick={EmployerPostData}
