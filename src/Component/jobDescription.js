@@ -15,9 +15,10 @@ import PinterestIcon from '@mui/icons-material/Pinterest';
 import Footer from './footer';
 import './jobDescription.css'
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-function JobDescription({ getSingleJObId }) {
-    
+function JobDescription({ getSingleJObId,getEmployerID}) {
+
     let [descriptionData, setdescriptionData] = useState([])
     async function GetDescriptionData(id) {
         const data = await fetch(`http://localhost:4500/job/${getSingleJObId}`, {
@@ -36,6 +37,34 @@ function JobDescription({ getSingleJObId }) {
     //    descriptionData.map((data)=>{
     //         console.log(data.jobTitle)
     //     })
+
+    const navigate = useNavigate()
+    // let [employerID,setEmployerId]=useState('')
+    async function applyJob(jobId) {
+        getEmployerID(jobId)
+        navigate('/login',{replace:true})
+        // try {
+        //     const postData = await fetch('http://localhost:4500/api/candidate/applyJob', {
+
+        //         method: "POST",
+        //         headers: {
+        //             "Content-Type": "application/json"
+        //         },
+        //         body: JSON.stringify({ jobId:jobId})
+        //     })
+
+        //     const response = await postData.json()
+        //     console.log(response)
+        //     if (response) {
+        //         alert(response.message)
+        //     }
+
+        //     // const response = await getFeaturedJob.json()
+        //     // setGetFeaturedJobData(response.jobsData)
+        // } catch (err) {
+        //     console.log("Server Can't respond")
+        // }
+    }
 
     useEffect(() => {
         GetDescriptionData()
@@ -114,7 +143,8 @@ function JobDescription({ getSingleJObId }) {
 
                                                 </div>
 
-                                                <button className='text-white font-bold bg-[#14A077] px-12 py-4 rounded'>
+                                                <button className='text-white font-bold bg-[#14A077] px-12 py-4 rounded'
+                                                onClick={()=>{applyJob(data._id)}}>
                                                     <div className='flex gap-2 items-center justify-center'>
                                                         <SendIcon className=' ' />
                                                         <p>Apply Now</p>

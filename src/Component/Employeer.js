@@ -618,7 +618,7 @@ function Employeer() {
 
                 </div> */}
 
- {/* Right Side */}
+                {/* Right Side */}
                 {/* Dashboard */}
                 <div className='flex overflow-scroll h-[80vh] flex-col gap-8 w-full  bg-[#eeeeee99] px-8 py-6'>
 

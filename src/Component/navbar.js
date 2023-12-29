@@ -34,17 +34,19 @@ function Navbar() {
                 <div className='logo flex gap-12 '>
                     <img src={logo} className='w-full h-full object-contain'></img>
 
-                    <div className=' showCategory hidden flex-row items-center gap-1 justify-center
-                        lg:flex-row '>
-                        <GridViewIcon />
-                        <p className='text-gray-700 font-helvetica text-md font-normal leading-6'>Categories</p>
-                    </div>
+
                 </div>
 
                 <div className='showMiddlePortion hidden'>
 
                     <div className="hidden flex-row items-center gap-5 justify-center
                         lg:flex ">
+
+                        <div className=' showCategory hidden flex-row items-center gap-1 justify-center
+                         '>
+                            <GridViewIcon />
+                            <p className='text-gray-700 font-helvetica text-md font-normal leading-6'>Categories</p>
+                        </div>
 
                         <div className='flex flex-row items-center'>
 
@@ -158,8 +160,9 @@ function Navbar() {
                     <div className='flex gap-6'>
                         <NotificationsNoneIcon className='transform scale-125' />
                         <div className='flex gap-1'>
-                            <PermIdentitySharpIcon  className='transform scale-125' />
-                            <p>Login/Register</p>
+                            <PermIdentitySharpIcon className='transform scale-125' />
+                            <a href='/login'>Login/Register</a>
+
                         </div>
                     </div>
                     <button className=' showPostAJobButton px-9 py-4 rounded text-medium font-sans font-semibold font-jakarta border-[1px] border-[#14A077]'>Post a Job</button>
